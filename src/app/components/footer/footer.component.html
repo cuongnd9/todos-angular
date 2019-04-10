@@ -12,8 +12,18 @@
         class="filter-btn"
         *ngFor="let btn of filterButtons"
         [ngClass]="{ active: btn.isActive }"
-      >{{btn.label}}</button>
-      <button type='button' class='filter-btn clear-complete-btn'>Clear Completed</button>
+        (click)="filter(btn.type)"
+      >
+        {{ btn.label }}
+      </button>
+      <button
+        [ngClass]="{ 'visible': hasCompleted$ | async }"
+        type="button"
+        class="filter-btn clear-complete-btn"
+        (click)="clearCompleted()"
+      >
+        Clear Completed
+      </button>
     </div>
   </div>
 </div>

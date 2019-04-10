@@ -24,7 +24,7 @@
   & .clear-completed-btn {
     visibility: hidden;
 
-    & .visible {
+    &.visible {
       visibility: visible;
     }
   }

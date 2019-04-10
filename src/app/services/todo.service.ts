@@ -75,6 +75,11 @@ export class TodoService {
     this.updateToLocalStorage();
   }
 
+  clearCompleted() {
+    this.todos = this.todos.filter(todo => !todo.isCompleted);
+    this.updateToLocalStorage();
+  }
+
   filterTodos(filter: Filter, isFiltering: boolean = true): void {
     this.currentFilter = filter;
     switch (filter) {

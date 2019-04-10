@@ -1,7 +1,7 @@
 export interface FilterButton {
-  readonly type: Filter;
-  readonly label: string;
-  readonly isActive: boolean;
+  type: Filter;
+  label: string;
+  isActive: boolean;
 }
 
 export enum Filter {
