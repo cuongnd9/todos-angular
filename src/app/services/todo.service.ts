@@ -40,6 +40,14 @@ export class TodoService {
     this.updateToLocalStorage();
   }
 
+  changeTodoStatus(id: number, isCompleted: boolean) {
+    const index = this.todos.findIndex(item => item.id === id);
+    const todo = this.todos[index];
+    todo.isCompleted = isCompleted;
+    this.todos.splice(index, 1, todo);
+    this.updateToLocalStorage();
+  }
+
   filterTodos(filter: Filter, isFiltering: boolean = true): void {
     this.currentFilter = filter;
     switch (filter) {
@@ -49,7 +57,7 @@ export class TodoService {
       case Filter.Completed:
         this.filteredTodos = this.todos.filter(todo => todo.isCompleted);
         break;
-      case Filter.Completed:
+      case Filter.All:
         this.filteredTodos = [...this.todos.map(todo => ({...todo}))];
         break;
     }
