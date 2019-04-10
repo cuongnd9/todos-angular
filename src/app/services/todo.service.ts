@@ -33,6 +33,13 @@ export class TodoService {
     this.updateTodosData();
   }
 
+  addTodo(content: string) {
+    const date = new Date().getTime();
+    const todo = new Todo(date, content);
+    this.todos.unshift(todo);
+    this.updateToLocalStorage();
+  }
+
   filterTodos(filter: Filter, isFiltering: boolean = true): void {
     this.currentFilter = filter;
     switch (filter) {
