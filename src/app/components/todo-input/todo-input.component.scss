@@ -1,0 +1,11 @@
+input {
+  outline: none;
+  border: none;
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+::placeholder {
+  color: rgba($color: #000000, $alpha: 0.5);
+  opacity: 0.5;
+}
