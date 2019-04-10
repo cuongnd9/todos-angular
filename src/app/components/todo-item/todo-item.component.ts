@@ -10,6 +10,7 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
   @Output() changeStatus: EventEmitter<Todo> = new EventEmitter<Todo>();
   @Output() editTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() removeTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   isHovered = false;
   isEditing = false;
@@ -31,5 +32,9 @@ export class TodoItemComponent implements OnInit {
       this.editTodo.emit(this.todo);
       this.isEditing = false;
     }
+  }
+
+  deleteTodo() {
+    this.removeTodo.emit(this.todo);
   }
 }
