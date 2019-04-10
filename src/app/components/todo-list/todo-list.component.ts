@@ -20,4 +20,8 @@ export class TodoListComponent implements OnInit {
   onChangeTodoStatus(todo: Todo) {
     this.todoService.changeTodoStatus(todo.id, todo.isCompleted);
   }
+
+  onEditTodo(todo: Todo) {
+    this.todoService.editTodo(todo.id, todo.content);
+  }
 }

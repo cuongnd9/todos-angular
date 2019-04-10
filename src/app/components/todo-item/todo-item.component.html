@@ -18,6 +18,7 @@
     <span
       class="icon-wrapper text-center edit"
       [ngClass]="{ active: isHovered }"
+      [hidden]="todo.isCompleted"
     >
       <i class="eva eva-edit-outline" (click)="isEditing = true"></i>
     </span>
@@ -25,7 +26,7 @@
       <i class="eva eva-close"></i>
     </span>
   </div>
-  <form class="edit-form" *ngIf="isEditing">
-    <input type="text" class="edit-todo" />
+  <form class="edit-form" *ngIf="isEditing" (keyup)="submitEdit($event)">
+    <input name='edit-form' type="text" class="edit-todo" [(ngModel)]="todo.content" autofocus />
   </form>
 </div>

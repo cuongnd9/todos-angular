@@ -9,6 +9,7 @@ import { Todo } from 'src/app/models/todo.model';
 export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
   @Output() changeStatus: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() editTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   isHovered = false;
   isEditing = false;
@@ -22,5 +23,13 @@ export class TodoItemComponent implements OnInit {
       ...this.todo,
       isCompleted: !this.todo.isCompleted
     });
+  }
+
+  submitEdit(event: KeyboardEvent) {
+    event.preventDefault();
+    if (event.key === 'Enter' ) {
+      this.editTodo.emit(this.todo);
+      this.isEditing = false;
+    }
   }
 }
