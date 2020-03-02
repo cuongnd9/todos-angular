@@ -1,6 +1,6 @@
 # todos-angular
 
-👎 Angular is not awesome. 🙏 Please don't learn Angular like me!
+Building a todos app with Angular
 
 ## Install
 
